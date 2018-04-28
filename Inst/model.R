@@ -36,5 +36,12 @@ rpart.plot(multiclass.model)
 
 DTreepreds <- predict(rr)[,2]
 messageMetrics(DTreepreds, "Decision Tree")
+var.names <- names(Iris)
+xgb.importance(var.names, model = DTreepreds)
+xgb.save(DTreepreds, "iris_rpartDTree.model")
 
+IrisClassInfo <- list(var.names = var.names
+                         ,var.levels = var.levels)
+
+save(IrisClassInfo, file = 'DiamondClassInfo.rda')
 
