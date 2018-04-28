@@ -2,19 +2,23 @@ library(xgboost)
 library(tidyverse)
 library(DT)
 
-IrisClass <- xgb.load("iris_rpart_model.model")
+IrisClass <- load("./IrisClassInfo.rda")
 
-load("DiamondClassInfo.rda")
+model <- readRDS("./final_model.rds")
 
-generatePreds <- function(depth = 60, table = 50, price = 335, x = 4, y = 4){
+generatePreds <- function(sepLength = mean(sepLength)
+                          , sepWidth = mean(sepWidth)
+                          , petLength = mean(petLength)
+                          , petWidth = mean(petWidth)
+                          ){
   testDF <- as.matrix(
-    depth, table, price, x, y
+    sepLength, sepWidth , petLength, petWidth 
   )
   
-  preds <- predict(DiamondClass, testDF)
+  preds <- predict(IrisClass, testDF)
   
   data.frame(
-    Cut = DiamondClassInfo$var.levels
+    Species = DiamondClassInfo$var.levels
     ,preds
   ) %>%
     arrange(desc(preds))

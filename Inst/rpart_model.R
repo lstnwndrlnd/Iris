@@ -44,5 +44,5 @@ save(DTreepreds, "iris_rpartDTree.model")
 IrisClassInfo <- list(var.names = var.names
                          ,var.levels = var.levels)
 
-save(IrisClassInfo, file = 'DiamondClassInfo.rda')
-
+save(IrisClassInfo, file = 'IrisClassInfo.rda')
+saveRDS(rr, "./final_model.rds")
