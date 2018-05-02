@@ -6,6 +6,11 @@ IrisClass <- xgb.load("iris.model")
 
 load("IrisClassInfo.rda")
 
+sepLength <- Iris$Sepal.Length
+sepWidth <- Iris$Sepal.Width
+petLength <- Iris$Petal.Length
+petWidth <- Iris$Petal.Width
+
 generatePreds <- function(sepLength = mean(sepLength)
                           ,sepWidth = mean(sepWidth)
                           ,petLength = mean(petLength)

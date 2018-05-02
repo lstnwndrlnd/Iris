@@ -31,6 +31,11 @@ ui <- fluidPage(
     ),
     mainPanel(
      DT::dataTableOutput("pred_table")
+     
+     ,plotOutput("plot1", click = "plot_click")
+     
+     ,plotOutput("plot2", click = "plot_click")
+     
     )
   )
 )
