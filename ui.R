@@ -1,22 +1,36 @@
 ui <- fluidPage(
-  titlePanel("Iris species predition"),
+  titlePanel("Iris species prediction"),
   sidebarLayout(
     sidebarPanel(
-      # sliderInput("Depth", label = "Depth:",value = 62, min = 43, max = 79,
-      #             step = .1)
+      sliderInput("Sepal.Length"
+                  ,label = "Sepal Length:"
+                  ,value = mean(sepLength)
+                  ,min = min(sepLength)
+                  ,max = max(sepLength)
+                  ,step = .1)
       
-      # ,sliderInput("Table", "Table:", value = 57
-      #              , min = 43, max = 95, step =.5)
-      # ,sliderInput("Price", "price:", value = 2500
-      #              ,min = 325, max = 19000, step = 25)
-      # ,sliderInput("X", "X:", value = 5.75
-      #              ,min = 0, max = 12, step = .25)
-      # ,sliderInput("Y", "Y:", value = 5.75
-      #              ,min = 0, max = 12, step = .25)
+      ,sliderInput("Sepal.Width"
+                  ,label = "Sepal Width:"
+                  ,value = mean(sepWidth)
+                  ,min = min(sepWidth)
+                  ,max = max(sepWidth)
+                  ,step = .1)
+      ,sliderInput("Petal.Length"
+                  ,label = "Petal Length:"
+                  ,value = mean(petLength)
+                  ,min = min(petLength)
+                  ,max = max(petLength)
+                  ,step = .1)
       
+      ,sliderInput("Petal.Width"
+                   ,label = "Petal Width:"
+                   ,value = mean(petWidth)
+                   ,min = min(petWidth)
+                   ,max = max(petWidth)
+                   ,step = .1)
     ),
     mainPanel(
-     # DT::dataTableOutput("pred_table")
+     DT::dataTableOutput("pred_table")
     )
   )
 )

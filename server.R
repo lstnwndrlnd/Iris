@@ -3,9 +3,10 @@ server <- function(input,output){
   
   Preds <- reactive({
     generatePreds(
-      sepLength = input$sepLength
-      ,sepWidth = input$sepWidth
-      ,petLength = input$petLength
+      sepLength = input$Sepal.Length
+      ,sepWidth = input$Sepal.Width
+      ,petLength = input$Petal.Length
+      ,petWidth = input$Petal.Width
     )
   })
   
